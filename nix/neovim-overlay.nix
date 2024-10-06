@@ -99,9 +99,10 @@ with final.pkgs.lib; let
   ];
 
   extraPackages = with pkgs; [
-  # language servers, etc.
+    # language servers, etc.
     lua-language-server
     nil # nix LSP
+    pyright # python LSP
  
     ripgrep # required by telescope
 
