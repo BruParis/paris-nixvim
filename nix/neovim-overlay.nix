@@ -84,14 +84,28 @@ with final.pkgs.lib; let
 
     # colortheme
     catppuccin-nvim
+
+    # Add Copilot.vim plugin
+    (pkgs.vimUtils.buildVimPluginFrom2Nix {
+      pname = "copilot";
+      version = "main";
+      src = pkgs.fetchFromGitHub {
+        owner = "github";
+        repo = "copilot.vim";
+        rev = "main";
+        sha256 = "0f0iszaphi1p411wgpn8r4slqrxlwdcy03raqypdg5f40jmiad9c";
+      };
+    })
   ];
 
   extraPackages = with pkgs; [
-    # language servers, etc.
+  # language servers, etc.
     lua-language-server
     nil # nix LSP
  
     ripgrep # required by telescope
+
+    nodejs_22 # requires by copilot
   ];
 in {
   # This is the neovim derivation
