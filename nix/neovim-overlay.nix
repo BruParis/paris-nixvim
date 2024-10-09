@@ -82,11 +82,11 @@ with final.pkgs.lib; let
     # ^ bleeding-edge plugins from flake inputs
     which-key-nvim
 
-    # colortheme
+    # colorscheme
     catppuccin-nvim
 
-    # Add Copilot.vim plugin
-    (pkgs.vimUtils.buildVimPluginFrom2Nix {
+    # Copilot.vim plugin
+    (pkgs.vimUtils.buildVimPlugin {
       pname = "copilot";
       version = "main";
       src = pkgs.fetchFromGitHub {
@@ -98,11 +98,20 @@ with final.pkgs.lib; let
     })
   ];
 
+  jedi-env = pkgs.python310.withPackages (ps: with ps; [
+    jedi
+    parso
+    flake8
+    # black
+    jedi-language-server
+  ]);
+
   extraPackages = with pkgs; [
     # language servers, etc.
     lua-language-server
     nil # nix LSP
-    pyright # python LSP
+    # pyright # python LSP
+    jedi-env # python LSP
  
     ripgrep # required by telescope
 
