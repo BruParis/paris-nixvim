@@ -86,16 +86,7 @@ with final.pkgs.lib; let
     catppuccin-nvim
 
     # Copilot.vim plugin
-    (pkgs.vimUtils.buildVimPlugin {
-      pname = "copilot";
-      version = "main";
-      src = pkgs.fetchFromGitHub {
-        owner = "github";
-        repo = "copilot.vim";
-        rev = "main";
-        sha256 = "0f0iszaphi1p411wgpn8r4slqrxlwdcy03raqypdg5f40jmiad9c";
-      };
-    })
+    copilot-vim
   ];
 
   jedi-env = pkgs.python310.withPackages (ps: with ps; [
