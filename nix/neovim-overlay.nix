@@ -85,6 +85,10 @@ with final.pkgs.lib; let
     # LSP client integration 
     null-ls-nvim
 
+    # for debugging
+    nvim-dap
+    nvim-dap-ui
+
     # colorscheme
     catppuccin-nvim
 
@@ -97,6 +101,7 @@ with final.pkgs.lib; let
     parso
     flake8
     black
+    debugpy
     jedi-language-server
   ]);
 
