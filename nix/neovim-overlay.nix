@@ -82,6 +82,9 @@ with final.pkgs.lib; let
     # ^ bleeding-edge plugins from flake inputs
     which-key-nvim
 
+    # LSP client integration 
+    null-ls-nvim
+
     # colorscheme
     catppuccin-nvim
 
@@ -101,12 +104,11 @@ with final.pkgs.lib; let
     # language servers, etc.
     lua-language-server
     nil # nix LSP
-    # pyright # python LSP
     jedi-env # python LSP
  
     ripgrep # required by telescope
 
-    nodejs_22 # requires by copilot
+    nodejs_22 # required by copilot
   ];
 in {
   # This is the neovim derivation
