@@ -89,11 +89,11 @@ with final.pkgs.lib; let
     copilot-vim
   ];
 
-  jedi-env = pkgs.python310.withPackages (ps: with ps; [
+  jedi-env = pkgs.python312.withPackages (ps: with ps; [
     jedi
     parso
     flake8
-    # black
+    black
     jedi-language-server
   ]);
 
