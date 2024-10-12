@@ -48,6 +48,9 @@ vim.keymap.set('n', '<F5>', function() dap.continue() end, { desc = 'Start/Conti
 vim.keymap.set('n', '<F10>', function() dap.step_over() end, { desc = 'Step Over' })
 vim.keymap.set('n', '<F11>', function() dap.step_into() end, { desc = 'Step Into' })
 vim.keymap.set('n', '<F12>', function() dap.step_out() end, { desc = 'Step Out' })
-vim.keymap.set('n', '<Leader>b', function() dap.toggle_breakpoint() end, { desc = 'Toggle Breakpoint' })
-vim.keymap.set('n', '<Leader>B', function() dap.set_breakpoint(vim.fn.input('Breakpoint condition: ')) end,
+vim.keymap.set('n', '<leader>b', function() dap.toggle_breakpoint() end, { desc = 'Toggle Breakpoint' })
+vim.keymap.set('n', '<leader>B', function() dap.set_breakpoint(vim.fn.input('Breakpoint condition: ')) end,
   { desc = 'Set Conditional Breakpoint' })
+
+vim.fn.sign_define('DapBreakpoint',{ text ='🟥', texthl ='', linehl ='', numhl =''})
+vim.fn.sign_define('DapStopped',{ text ='▶️', texthl ='', linehl ='', numhl =''})
