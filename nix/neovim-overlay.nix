@@ -94,6 +94,9 @@ with final.pkgs.lib; let
 
     # Copilot.vim plugin
     copilot-vim
+
+    # latex
+    vimtex
   ];
 
   jedi-env = pkgs.python312.withPackages (ps: with ps; [
@@ -114,6 +117,8 @@ with final.pkgs.lib; let
     ripgrep # required by telescope
 
     nodejs_22 # required by copilot
+
+    texlab # latex LSP
   ];
 in {
   # This is the neovim derivation
