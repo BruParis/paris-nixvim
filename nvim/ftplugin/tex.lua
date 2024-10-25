@@ -17,5 +17,5 @@ vim.lsp.start {
 
 -- Additional settings for VimTeX
 vim.g.vimtex_view_method = 'zathura'  -- Example PDF viewer setting for VimTeX
-vim.g.vimtex_compiler_method = 'latexmk'  -- Example compiler setting for VimTeX
+vim.g.vimtex_compiler_method = 'xelatex'  -- Example compiler setting for VimTeX
 

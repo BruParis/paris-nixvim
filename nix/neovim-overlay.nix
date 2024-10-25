@@ -97,6 +97,9 @@ with final.pkgs.lib; let
 
     # latex
     vimtex
+
+    # search and replace
+    nvim-spectre
   ];
 
   jedi-env = pkgs.python312.withPackages (ps: with ps; [
