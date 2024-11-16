@@ -104,4 +104,4 @@ cmd.packadd('cfilter') -- Allows filtering the quickfix list with :cfdo
 vim.g.sqlite_clib_path = require('luv').os_getenv('LIBSQLITE')
 
 -- colorscheme
-cmd('colorscheme catppuccin-frappe')
+cmd('colorscheme catppuccin-macchiato')

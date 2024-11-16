@@ -1,6 +1,8 @@
 # This overlay, when applied to nixpkgs, adds the final neovim derivation to nixpkgs.
-{inputs}: final: prev:
-with final.pkgs.lib; let
+{ inputs }:
+final: prev:
+with final.pkgs.lib;
+let
   pkgs = final;
 
   # Use this to create a plugin from a flake input
@@ -102,26 +104,22 @@ with final.pkgs.lib; let
     nvim-spectre
   ];
 
-  jedi-env = pkgs.python312.withPackages (ps: with ps; [
-    jedi
-    parso
-    flake8
-    black
-    debugpy
-    jedi-language-server
-  ]);
+  jedi-env = pkgs.python312.withPackages
+    (ps: with ps; [ jedi parso flake8 black debugpy jedi-language-server ]);
 
   extraPackages = with pkgs; [
     # language servers, etc.
+    # lua
     lua-language-server
-    nil # nix LSP
-    jedi-env # python LSP
- 
+    # nix
+    nil
+    # latex
+    texlab
+    # python
+    jedi-env
+
     ripgrep # required by telescope
-
     nodejs_22 # required by copilot
-
-    texlab # latex LSP
   ];
 in {
   # This is the neovim derivation
@@ -132,9 +130,7 @@ in {
   };
 
   # This can be symlinked in the devShell's shellHook
-  nvim-luarc-json = final.mk-luarc-json {
-    plugins = all-plugins;
-  };
+  nvim-luarc-json = final.mk-luarc-json { plugins = all-plugins; };
 
   # You can add as many derivations as you like.
   # Use `ignoreConfigRegexes` to filter out config

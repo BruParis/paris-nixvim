@@ -37,7 +37,7 @@ dap.configurations.python = {
       else
         local default_path = vim.fn.exepath('python') or 'python'
         print('Using default Python interpreter: ' ..
-        default_path .. '\nTip: Set up a virtual environment to use a different interpreter automatically.')
+          default_path .. '\nTip: Set up a virtual environment to use a different interpreter automatically.')
         return vim.fn.input('Path to Python interpreter: ', default_path, 'file')
       end
     end,
@@ -52,5 +52,5 @@ vim.keymap.set('n', '<leader>b', function() dap.toggle_breakpoint() end, { desc 
 vim.keymap.set('n', '<leader>B', function() dap.set_breakpoint(vim.fn.input('Breakpoint condition: ')) end,
   { desc = 'Set Conditional Breakpoint' })
 
-vim.fn.sign_define('DapBreakpoint',{ text ='🟥', texthl ='', linehl ='', numhl =''})
-vim.fn.sign_define('DapStopped',{ text ='▶️', texthl ='', linehl ='', numhl =''})
+vim.fn.sign_define('DapBreakpoint', { text = '🟥', texthl = '', linehl = '', numhl = '' })
+vim.fn.sign_define('DapStopped', { text = '▶️', texthl = '', linehl = '', numhl = '' })
