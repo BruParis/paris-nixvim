@@ -1,5 +1,5 @@
 -- Exit if the Python LSP server isn't available
-if vim.fn.executable('jedi-language-server') ~= 1 then
+if vim.fn.executable('pylsp') ~= 1 then
   return
 end
 
@@ -16,8 +16,8 @@ vim.lsp.set_log_level("debug")
 
 -- Start the Python LSP server
 vim.lsp.start {
-  name = 'jedi-language-server',
-  cmd = { 'jedi-language-server' },
+  name = 'pylsp',
+  cmd = { 'pylsp' },
   root_dir = vim.fs.dirname(vim.fs.find(root_files, { upward = true })[1]),
   capabilities = require('user.lsp').make_client_capabilities(),
 }

@@ -104,8 +104,8 @@ let
     nvim-spectre
   ];
 
-  jedi-env = pkgs.python312.withPackages
-    (ps: with ps; [ jedi parso flake8 black debugpy jedi-language-server ]);
+  py-lsp-env = pkgs.python312.withPackages
+    (ps: with ps; [ parso flake8 black debugpy python-lsp-server pylsp-mypy ]);
 
   extraPackages = with pkgs; [
     # language servers, etc.
@@ -116,7 +116,7 @@ let
     # latex
     texlab
     # python
-    jedi-env
+    py-lsp-env
 
     ripgrep # required by telescope
     nodejs_22 # required by copilot
