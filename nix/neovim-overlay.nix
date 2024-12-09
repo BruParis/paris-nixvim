@@ -102,6 +102,7 @@ let
 
     # search and replace
     nvim-spectre
+    minimap-vim
   ];
 
   py-lsp-env = pkgs.python312.withPackages
