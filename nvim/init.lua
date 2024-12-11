@@ -105,3 +105,23 @@ vim.g.sqlite_clib_path = require('luv').os_getenv('LIBSQLITE')
 
 -- colorscheme
 cmd('colorscheme catppuccin-macchiato')
+
+-- clipboard with xclip
+-- Set up g:clipboard for Neovim
+vim.g.clipboard = {
+  name = "CustomClipboard",
+  copy = {
+    ["+"] = "xclip -selection clipboard",
+    ["*"] = "xclip -selection clipboard",
+  },
+  paste = {
+    ["+"] = "xclip -selection clipboard -o",
+    ["*"] = "xclip -selection clipboard -o",
+  },
+  cache_enabled = 0,
+}
+
+-- Check for xclip availability
+if vim.fn.executable("xclip") == 0 then
+  vim.notify("xclip is not installed or not found in PATH. Clipboard integration may not work.", vim.log.levels.WARN)
+end
