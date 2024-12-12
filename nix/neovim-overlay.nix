@@ -130,9 +130,12 @@ let
     # python
     py-lsp-env
 
+    # used by nvim plugins
     ripgrep # required by telescope
     fd # ... idem ...
     nodejs_22 # required by copilot
+    tree-sitter # required by nvim-treesitter
+
   ];
 in
 {

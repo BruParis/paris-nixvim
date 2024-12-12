@@ -12,7 +12,7 @@ local root_files = {
   '.git',
 }
 
-vim.lsp.set_log_level("debug")
+-- vim.lsp.set_log_level("debug")
 
 -- Start the Python LSP server
 vim.lsp.start {
