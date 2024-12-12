@@ -92,9 +92,6 @@ let
     nvim-dap
     nvim-dap-ui
 
-    # colorscheme
-    catppuccin-nvim
-
     # Copilot.vim plugin
     copilot-vim
 
@@ -103,8 +100,13 @@ let
 
     # search and replace
     nvim-spectre
-    # minimap-vim
+
+    # UI, display, layout, ....
+    catppuccin-nvim # colorscheme
+    # miniwindow
     codewindow-nvim
+    mini-nvim
+
   ];
 
   py-lsp-env = pkgs.python312.withPackages (
