@@ -6,7 +6,8 @@ let
   pkgs = final;
 
   # Use this to create a plugin from a flake input
-  mkNvimPlugin = src: pname:
+  mkNvimPlugin =
+    src: pname:
     pkgs.vimUtils.buildVimPlugin {
       inherit pname src;
       version = src.lastModifiedDate;
@@ -106,14 +107,23 @@ let
     codewindow-nvim
   ];
 
-  py-lsp-env = pkgs.python312.withPackages
-    (ps: with ps; [ parso flake8 black debugpy python-lsp-server pylsp-mypy ]);
+  py-lsp-env = pkgs.python312.withPackages (
+    ps: with ps; [
+      parso
+      flake8
+      black
+      debugpy
+      python-lsp-server
+      pylsp-mypy
+    ]
+  );
 
   extraPackages = with pkgs; [
     # language servers, etc.
     # lua
     lua-language-server
     # nix
+    nixfmt-rfc-style
     nil
     # latex
     texlab
@@ -121,9 +131,11 @@ let
     py-lsp-env
 
     ripgrep # required by telescope
+    fd # ... idem ...
     nodejs_22 # required by copilot
   ];
-in {
+in
+{
   # This is the neovim derivation
   # returned by the overlay
   nvim-pkg = mkNeovim {
