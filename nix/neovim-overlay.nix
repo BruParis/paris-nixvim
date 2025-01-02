@@ -131,6 +131,8 @@ let
     texlab
     # python
     py-lsp-env
+    # C / C++
+    clang-tools
 
     # used by nvim plugins
     ripgrep # required by telescope
