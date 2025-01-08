@@ -101,7 +101,8 @@ let
     # search and replace
     nvim-spectre
 
-    # UI, display, layout, ....
+    # UI, display, layout, fancy stuff, ....
+    smear-cursor-nvim
     catppuccin-nvim # colorscheme
     # miniwindow
     codewindow-nvim
