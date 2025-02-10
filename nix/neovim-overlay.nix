@@ -141,6 +141,8 @@ let
     nodejs_22 # required by copilot
     tree-sitter # required by nvim-treesitter
 
+    # Lsp for Dockerfiles (powered by NodeJs)
+    dockerfile-language-server-nodejs
   ];
 in
 {
