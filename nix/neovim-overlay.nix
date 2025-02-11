@@ -132,6 +132,9 @@ let
     texlab
     # python
     py-lsp-env
+    # rust
+    rust-analyzer
+    rustfmt
     # C / C++
     clang-tools
 
