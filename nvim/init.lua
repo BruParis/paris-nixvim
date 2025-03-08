@@ -108,18 +108,18 @@ cmd('colorscheme catppuccin-macchiato')
 
 -- clipboard with xclip
 -- Set up g:clipboard for Neovim
-vim.g.clipboard = {
-  name = "CustomClipboard",
-  copy = {
-    ["+"] = "xclip -selection clipboard",
-    ["*"] = "xclip -selection clipboard",
-  },
-  paste = {
-    ["+"] = "xclip -selection clipboard -o",
-    ["*"] = "xclip -selection clipboard -o",
-  },
-  cache_enabled = 0,
-}
+-- vim.g.clipboard = {
+--   name = "CustomClipboard",
+--   copy = {
+--     ["+"] = "xclip -selection clipboard",
+--     ["*"] = "xclip -selection clipboard",
+--   },
+--   paste = {
+--     ["+"] = "xclip -selection clipboard -o",
+--     ["*"] = "xclip -selection clipboard -o",
+--   },
+--   cache_enabled = 0,
+-- }
 
 -- Check for xclip availability
 if vim.fn.executable("xclip") == 0 then
