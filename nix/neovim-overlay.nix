@@ -108,6 +108,8 @@ let
     codewindow-nvim
     mini-nvim
 
+    # Markdown
+    markdown-preview-nvim
   ];
 
   py-lsp-env = pkgs.python312.withPackages (
