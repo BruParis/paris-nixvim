@@ -139,6 +139,8 @@ let
     rustfmt
     # C / C++
     clang-tools
+    # Typescript
+    typescript-language-server
 
     # used by nvim plugins
     ripgrep # required by telescope
