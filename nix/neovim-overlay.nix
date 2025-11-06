@@ -119,7 +119,9 @@ let
       black
       debugpy
       python-lsp-server
+
       pylsp-mypy
+      pydantic # needed by mypy for type checking
     ]
   );
 
