@@ -3,15 +3,16 @@ local null_ls = require("null-ls")
 
 null_ls.setup({
   sources = {
+
     -- Nix formatter
-    null_ls.builtins.formatting.nixfmt,
+    -- null_ls.builtins.formatting.nixfmt,
 
-    -- Python formatter
-    null_ls.builtins.formatting.black,
+    -- -- Python formatter
+    -- null_ls.builtins.formatting.black,
 
-    -- Javascript, Typescript, ... formatter
-    null_ls.builtins.formatting.prettier.with({
-      extra_filetypes = { "json", "yaml", "markdown" },
-    }),
+    -- -- Javascript, Typescript, ... formatter
+    -- null_ls.builtins.formatting.prettier.with({
+    --   extra_filetypes = { "json", "yaml", "markdown" },
+    -- }),
   },
 })

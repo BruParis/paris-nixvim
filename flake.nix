@@ -14,19 +14,34 @@
     # };
   };
 
-  outputs = inputs@{ self, nixpkgs, flake-utils, gen-luarc, ... }:
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      flake-utils,
+      gen-luarc,
+      ...
+    }:
     let
-      supportedSystems =
-        [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
+      supportedSystems = [
+        "x86_64-linux"
+        "aarch64-linux"
+        "x86_64-darwin"
+        "aarch64-darwin"
+      ];
 
       # This is where the Neovim derivation is built.
       neovim-overlay = import ./nix/neovim-overlay.nix { inherit inputs; };
-    in flake-utils.lib.eachSystem supportedSystems (system:
+    in
+    flake-utils.lib.eachSystem supportedSystems (
+      system:
       let
         pkgs = import nixpkgs {
           inherit system;
 
-          config = { allowUnfree = true; };
+          config = {
+            allowUnfree = true;
+          };
 
           overlays = [
             # Import the overlay, so that the final Neovim derivation(s) can be accessed via pkgs.<nvim-pkg>
@@ -51,14 +66,19 @@
             ln -fs ${pkgs.nvim-luarc-json} .luarc.json
           '';
         };
-      in {
+      in
+      {
         packages = rec {
           default = nvim;
           nvim = pkgs.nvim-pkg;
         };
-        devShells = { default = shell; };
-      }) // {
-        # You can add this overlay to your NixOS configuration
-        overlays.default = neovim-overlay;
-      };
+        devShells = {
+          default = shell;
+        };
+      }
+    )
+    // {
+      # You can add this overlay to your NixOS configuration
+      overlays.default = neovim-overlay;
+    };
 }

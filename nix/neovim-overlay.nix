@@ -85,8 +85,8 @@ let
     # ^ bleeding-edge plugins from flake inputs
     which-key-nvim
 
-    # LSP client integration 
-    null-ls-nvim
+    # LSP client integration
+    none-ls-nvim
 
     # for debugging
     nvim-dap
@@ -129,9 +129,11 @@ let
     # language servers, etc.
     # lua
     lua-language-server
+
     # nix
     nixfmt-rfc-style
     nil
+
     # latex
     texlab
     # python
