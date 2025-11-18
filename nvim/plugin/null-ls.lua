@@ -8,7 +8,7 @@ null_ls.setup({
     -- null_ls.builtins.formatting.nixfmt,
 
     -- -- Python formatter
-    -- null_ls.builtins.formatting.black,
+    null_ls.builtins.formatting.black,
 
     -- -- Javascript, Typescript, ... formatter
     -- null_ls.builtins.formatting.prettier.with({
