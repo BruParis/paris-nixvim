@@ -131,7 +131,7 @@ let
     lua-language-server
 
     # nix
-    nixfmt-rfc-style
+    nixfmt
     nil
 
     # latex
@@ -153,7 +153,7 @@ let
     tree-sitter # required by nvim-treesitter
 
     # Lsp for Dockerfiles (powered by NodeJs)
-    dockerfile-language-server-nodejs
+    dockerfile-language-server
   ];
 in
 {
