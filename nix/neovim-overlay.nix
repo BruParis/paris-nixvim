@@ -92,7 +92,7 @@ let
     nvim-dap
     nvim-dap-ui
 
-    # Copilot.vim plugin
+    # Ai Autocompletion plugin
     copilot-vim
 
     # latex
@@ -120,6 +120,7 @@ let
       flake8
       black
       debugpy
+      pylint
       python-lsp-server
 
       pylsp-mypy
