@@ -44,6 +44,8 @@ vim.lsp.start {
         -- type checker
         pylsp_mypy = {
           enabled = true,
+          dmypy = true,           -- use the daemon
+          dmypy_status_file = ".dmypy.json",  -- daemon state file, relative to project root
           overrides = { "--python-executable", py_path, true },
           report_progress = true,
           live_mode = false
