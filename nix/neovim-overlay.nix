@@ -125,6 +125,7 @@ let
 
       pylsp-mypy
       pydantic # needed by mypy for type checking
+      python-lsp-black
     ]
   );
 
