@@ -103,8 +103,14 @@ cmd.packadd('cfilter') -- Allows filtering the quickfix list with :cfdo
 -- let sqlite.lua (which some plugins depend on) know where to find sqlite
 vim.g.sqlite_clib_path = require('luv').os_getenv('LIBSQLITE')
 
--- colorscheme
-cmd('colorscheme catppuccin-macchiato')
+-- colorscheme (managed by toggle_theme; see nvim/plugin/toggle_theme.lua)
+do
+  local state_file = vim.fn.expand('~/.local/share/theme-mode')
+  local f = io.open(state_file, 'r')
+  local mode = f and f:read('*l') or 'dark'
+  if f then f:close() end
+  cmd('colorscheme catppuccin-' .. (mode == 'light' and 'latte' or 'macchiato'))
+end
 
 -- clipboard with xclip
 -- Set up g:clipboard for Neovim
