@@ -92,9 +92,6 @@ let
     nvim-dap
     nvim-dap-ui
 
-    # Ai Autocompletion plugin
-    copilot-vim
-
     # latex
     vimtex
 
