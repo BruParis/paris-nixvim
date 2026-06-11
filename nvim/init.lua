@@ -8,6 +8,8 @@ local g = vim.g
 -- g.maplocalleader = ' '
 
 opt.compatible = false
+opt.exrc = true
+opt.secure = true
 
 -- Enable true colour support
 if fn.has('termguicolors') then
