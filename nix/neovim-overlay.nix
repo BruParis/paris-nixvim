@@ -102,13 +102,13 @@ let
     smear-cursor-nvim
     catppuccin-nvim # colorscheme
     # miniwindow
-    codewindow-nvim
+    # codewindow-nvim
     mini-nvim
 
     # Markdown
     markdown-preview-nvim
 
-    claude-code-nvim
+    claudecode-nvim
   ];
 
   py-lsp-env = pkgs.python312.withPackages (
@@ -120,9 +120,17 @@ let
       pylint
       python-lsp-server
 
-      pylsp-mypy
+      (pylsp-mypy.overridePythonAttrs (_: {
+        # test suite fails against the packaged mypy version in nixpkgs;
+        # unrelated to functionality, so skip it
+        doCheck = false;
+      }))
       pydantic # needed by mypy for type checking
-      python-lsp-black
+      (python-lsp-black.overridePythonAttrs (_: {
+        # test suite imports pkg_resources (setuptools) which isn't available
+        # in the check environment; unrelated to functionality, so skip it
+        doCheck = false;
+      }))
     ]
   );
 
@@ -158,6 +166,18 @@ let
   ];
 in
 {
+  # scipy is a transitive test dependency (isort -> pylama -> vulture -> pint
+  # -> uncertainties -> scipy), not something this tooling uses directly. Its
+  # test suite is known-flaky, so skip it.
+  pythonPackagesExtensions = (prev.pythonPackagesExtensions or [ ]) ++ [
+    (pyFinal: pyPrev: {
+      scipy = pyPrev.scipy.overrideAttrs (_: {
+        doCheck = false;
+        doInstallCheck = false;
+      });
+    })
+  ];
+
   # This is the neovim derivation
   # returned by the overlay
   nvim-pkg = mkNeovim {

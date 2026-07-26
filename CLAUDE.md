@@ -69,3 +69,7 @@ There is no test suite. Changes are validated by building (`nix build`) and runn
 
 - Lua: 2-space indentation, single quotes, Unix line endings (enforced by `.stylua.toml`)
 - Nix: Follow existing formatting patterns in the flake files
+
+## Misc.
+
+- Leave the `nix build` commands to the user
