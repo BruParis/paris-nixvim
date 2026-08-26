@@ -107,6 +107,7 @@ let
 
     # Markdown
     markdown-preview-nvim
+    render-markdown-nvim
 
     claudecode-nvim
   ];
